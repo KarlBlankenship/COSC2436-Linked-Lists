@@ -35,14 +35,58 @@ public class SingleLinkedList
         }
     }
     
+    // Define the head and the tail of the linked list.
+    Node head = null;
+    Node tail = null;
+    
+    // Create an add method so that nodes can be added to the list.
+    /**
+     * The add method will add a new node to the end of the list.
+     * If there is no current elements in the list, the new node
+     * will be assigned the head and tail position.
+     * @param val The value to be added to the new node.
+     */
+    private void add(String val)
+    {
+        // Create the new node.
+        Node n = new Node(val);
+ 
+        // If there is no head node, assign head and tail to new node. 
+        if(head == null)
+        {
+            head = n;   // Set the head equal to n since its the only node.
+            tail = n;   // Set the tail equal to n since its the only node.
+        }
+        // Else, add node to the end of the list and reassign tail.
+        else
+        {
+            tail.next = n;  // Point the tail node to the new node.
+            tail = n;       // Reassign tail reference to the new node.
+        }
+    }
+    
     
     
     
     /**
+     * This is the main method which will create the SingleLinkedList object
+     * and test the methods.
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) 
+    {
+        // Create a new SingleLinkedList object.
+        SingleLinkedList sll = new SingleLinkedList();
+        
+        // Add an element to the new list and verify it has been added.
+        sll.add("a");
+        System.out.println("Head: " + sll.head.value);
+        System.out.println("Tail: " + sll.tail.value);
+        // Add another element to the new list and verify it has been added.
+        System.out.println("\nAdding b usinb add method");
+        sll.add("b");
+        System.out.println("Head: " + sll.head.value);
+        System.out.println("Tail: " + sll.tail.value);
     }
     
 }
