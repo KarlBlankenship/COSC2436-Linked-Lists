@@ -39,6 +39,33 @@ public class SingleLinkedList
     Node head = null;
     Node tail = null;
     
+    // Create a push method to push a new node onto the stack,
+    // replacing the head.
+    /**
+     * The push method will create a new node and push it onto
+     * the stack replacing the head.
+     * @param val The value to be contained in the new node.
+     */
+    private void push(String val)
+    {
+        // Create the new node.
+        Node n = new Node(val);
+        
+        // If there is head, the list is empty.
+        if (head == null)
+        {
+            head = n;
+            tail = n;
+        }
+        // Else, there are already elements so add before head.
+        else
+        {
+            n.next = head;
+            head = n;
+        }
+    }
+
+
     // Create an add method so that nodes can be added to the list.
     /**
      * The add method will add a new node to the end of the list.
@@ -83,8 +110,14 @@ public class SingleLinkedList
         System.out.println("Head: " + sll.head.value);
         System.out.println("Tail: " + sll.tail.value);
         // Add another element to the new list and verify it has been added.
-        System.out.println("\nAdding b usinb add method");
+        System.out.println("\nAdding b using add method");
         sll.add("b");
+        System.out.println("Head: " + sll.head.value);
+        System.out.println("Tail: " + sll.tail.value);
+        
+        // Push an element to the new list and verify it has become the head.
+        System.out.println("\nPushing c using push method");
+        sll.push("c");
         System.out.println("Head: " + sll.head.value);
         System.out.println("Tail: " + sll.tail.value);
     }
