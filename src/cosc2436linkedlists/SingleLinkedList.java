@@ -76,6 +76,21 @@ public class SingleLinkedList
         head = head.next;  // Remove the head by setting head to the next Node.
         return temp.value; // Return the value that was removed.
     }
+    
+    /**
+     * The display method will display the contents of the list.
+     */
+    private void display()
+    {
+        // Create a temporary node for cycling through list.
+        Node temp = head;
+        // Cycle through Nodes and display list values.
+        while (temp != null)
+        {
+            System.out.print(temp.value + " ");
+            temp = temp.next;
+        }  
+    }
 
 
     // Create an add method so that nodes can be added to the list.
