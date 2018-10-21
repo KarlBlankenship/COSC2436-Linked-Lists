@@ -64,6 +64,18 @@ public class SingleLinkedList
             head = n;
         }
     }
+    
+    /**
+     * The pop method will remove the head of the stack
+     * and will return the value that was removed.
+     * @return The value of the node that was removed.
+     */
+    private String pop()
+    {
+        Node temp = head;  // Set a temporaty Node to return the value.
+        head = head.next;  // Remove the head by setting head to the next Node.
+        return temp.value; // Return the value that was removed.
+    }
 
 
     // Create an add method so that nodes can be added to the list.
