@@ -78,6 +78,16 @@ public class SingleLinkedList
     }
     
     /**
+     * The peek method will return the value of the head of the 
+     * list but will not remove and reassign the head.
+     * @return The head value of the list.
+     */
+    private String peek()
+    {
+        return head.value;
+    }
+    
+    /**
      * The display method will display the contents of the list.
      */
     private void display()
@@ -154,35 +164,47 @@ public class SingleLinkedList
         
         // Add an element to the new list and verify it has been added.
         sll.add("d");
-        System.out.print("Add d: Expected: d Actual: ");
-        sll.display();
-        System.out.print(" Head Expected: d Actual: " + sll.head.value);
-        System.out.print(" Tail Expected: d Actual: " + sll.tail.value);
-        System.out.println(" Size Expected: 1 Actual: " + sll.size());
+        System.out.println("Add d:");
+        System.out.print(" List Expected: d\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: d\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 1\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println();
         
         // Add another element to the new list and verify it has been added.
         sll.add("f");
-        System.out.print("Add f: Expected: d f Actual: ");
-        sll.display();
-        System.out.print(" Head Expected: d Actual: " + sll.head.value);
-        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
-        System.out.println(" Size Expected: 2 Actual: " + sll.size());
+        System.out.println("Add f:");
+        System.out.print(" List Expected: d f\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 2\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println();
         
         // Push an element to the new list and verify it has become the head.
         sll.push("b");
-        System.out.print("Push b: Expected: b d f Actual: ");
-        sll.display();
-        System.out.print(" Head Expected: b Actual: " + sll.head.value);
-        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
-        System.out.println(" Size Expected: 3 Actual: " + sll.size());
+        System.out.println("Push b:");
+        System.out.print(" List Expected: b d f\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: b\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 3\tActual: " + sll.size());
+        System.out.println(" Peek Expected: b\tActual: " + sll.peek());
+        System.out.println();
         
         // Pop an element from the list.
         sll.pop();
-        System.out.print("Pop: Expected: d f Actual: ");
-        sll.display();
-        System.out.print(" Head Expected: d Actual: " + sll.head.value);
-        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
-        System.out.println(" Size Expected: 2 Actual: " + sll.size());
+        System.out.println("Pop:");
+        System.out.print(" List Expected: d f\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 2\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println();
     }
     
 }
