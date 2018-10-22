@@ -7,7 +7,7 @@
  * add after a provided index, remove, remove after a provided value,
  * remove after a provided index.
  * May also include add and remove methods for prior to specified values or
- * indexes and possible a bubble sort method.
+ * indexes and possibly a bubble sort method.
  */
 package cosc2436linkedlists;
 
@@ -156,7 +156,45 @@ public class SingleLinkedList
         }
     }
     
-    
+    /**
+     * The addAfterValue method will add a provided value after 
+     * a specified value in the list.
+     * @param valToAdd The value to be added to the list.
+     * @param afterVal The value in the list where the new element will be
+     * placed after.
+     */
+    private void addAfterValue(String valToAdd, String afterVal)
+    {
+        // Create a pointer node to cycle through to and mark the desired node.
+        Node pointer = head;
+        // Create the new node.
+        Node node = new Node(valToAdd);
+        
+        // Check to see if the list is empty and add only node if it is.
+        if (empty())
+        {
+            head = node;
+            tail = node;
+        }
+        else    // There are already existing elements in the list.
+        {
+            // Cycle through until the desired value is found.
+            while (pointer != null)
+            {
+                if (pointer.value.equals(afterVal))
+                {
+                    // Check for tail.
+                    if (pointer == tail)
+                    {
+                        tail = node;
+                    }
+                    node.next = pointer.next;
+                    pointer.next = node;
+                }
+                pointer = pointer.next;
+            }
+        }
+    }        
     
     
     /**
@@ -219,6 +257,19 @@ public class SingleLinkedList
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
         System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
+        
+        // Add an element after a value.
+        sll.addAfterValue("h", "f");
+        System.out.println("AddValueAfter:");
+        System.out.print(" List Expected: d f h\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 3\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
+        System.out.println();
+        
     }
     
 }
