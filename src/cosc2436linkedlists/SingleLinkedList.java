@@ -122,8 +122,15 @@ public class SingleLinkedList
         return counter;
     }
 
-
-    // Create an add method so that nodes can be added to the list.
+    /**
+     * The empty method will return true of the list is empty.
+     * @return true if the list is empty, false otherwise.
+     */
+    private boolean empty()
+    {
+        return (head == null);
+    }
+    
     /**
      * The add method will add a new node to the end of the list.
      * If there is no current elements in the list, the new node
@@ -162,6 +169,9 @@ public class SingleLinkedList
         // Create a new SingleLinkedList object.
         SingleLinkedList sll = new SingleLinkedList();
         
+        // Check the list empty method prior to adding anything to the list.
+        System.out.println("Empty Expected: true\tActual: " + sll.empty());
+        System.out.println();
         // Add an element to the new list and verify it has been added.
         sll.add("d");
         System.out.println("Add d:");
@@ -171,6 +181,7 @@ public class SingleLinkedList
         System.out.println(" Tail Expected: d\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 1\tActual: " + sll.size());
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
         
         // Add another element to the new list and verify it has been added.
@@ -182,6 +193,7 @@ public class SingleLinkedList
         System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 2\tActual: " + sll.size());
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
         
         // Push an element to the new list and verify it has become the head.
@@ -193,6 +205,7 @@ public class SingleLinkedList
         System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 3\tActual: " + sll.size());
         System.out.println(" Peek Expected: b\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
         
         // Pop an element from the list.
@@ -204,6 +217,7 @@ public class SingleLinkedList
         System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 2\tActual: " + sll.size());
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
     }
     
