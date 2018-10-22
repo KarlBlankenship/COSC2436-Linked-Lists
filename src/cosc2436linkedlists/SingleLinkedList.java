@@ -197,6 +197,32 @@ public class SingleLinkedList
     }        
     
     
+    private void addAfterIndex(String value, int index)
+    {
+        // Create the new Node.
+        Node node = new Node(value);
+        // Create the temp node to cycle through the list.
+        Node temp = head;
+        
+        // Check that the index is within the list
+        if (index < 0 || index >= size())
+            System.out.println("Invalis index.");  // Should be an exception.
+        else  // Index is within the list.
+        {
+            for (int i = 0; i < index; i++)  // Cycle to provided index.
+            {
+                temp = temp.next;
+            }
+            // Add the new node after temp index.
+            node.next = temp.next;
+            if(temp == tail)
+            {
+                tail = node;
+            }
+            temp.next = node;
+        }   
+    }
+    
     /**
      * This is the main method which will create the SingleLinkedList object
      * and test the methods.
@@ -266,6 +292,18 @@ public class SingleLinkedList
         System.out.println(" Head Expected: d\tActual: " + sll.head.value);
         System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 3\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
+        System.out.println();
+        
+        // Add an element after an index.
+        sll.addAfterIndex("j", 2);
+        System.out.println("AddValueAfter:");
+        System.out.print(" List Expected: d f h j\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: j\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 4\tActual: " + sll.size());
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
         System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
