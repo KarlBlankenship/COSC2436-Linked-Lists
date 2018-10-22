@@ -91,6 +91,26 @@ public class SingleLinkedList
             temp = temp.next;
         }  
     }
+    
+    /**
+     * The counter method will count how many elements are in the 
+     * list and return that number as an integer.
+     * @return The number of elements in the list.
+     */
+    private int size()
+    {
+        // Create a temp node for cycling through the list.
+        Node temp = head;
+        // Create a counter.
+        int counter = 0;
+        // Cycle through the list and increment the counter.
+        while (temp != null )
+        {
+            counter++;
+            temp = temp.next;
+        }
+        return counter;
+    }
 
 
     // Create an add method so that nodes can be added to the list.
@@ -133,20 +153,36 @@ public class SingleLinkedList
         SingleLinkedList sll = new SingleLinkedList();
         
         // Add an element to the new list and verify it has been added.
-        sll.add("a");
-        System.out.println("Head: " + sll.head.value);
-        System.out.println("Tail: " + sll.tail.value);
+        sll.add("d");
+        System.out.print("Add d: Expected: d Actual: ");
+        sll.display();
+        System.out.print(" Head Expected: d Actual: " + sll.head.value);
+        System.out.print(" Tail Expected: d Actual: " + sll.tail.value);
+        System.out.println(" Size Expected: 1 Actual: " + sll.size());
+        
         // Add another element to the new list and verify it has been added.
-        System.out.println("\nAdding b using add method");
-        sll.add("b");
-        System.out.println("Head: " + sll.head.value);
-        System.out.println("Tail: " + sll.tail.value);
+        sll.add("f");
+        System.out.print("Add f: Expected: d f Actual: ");
+        sll.display();
+        System.out.print(" Head Expected: d Actual: " + sll.head.value);
+        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
+        System.out.println(" Size Expected: 2 Actual: " + sll.size());
         
         // Push an element to the new list and verify it has become the head.
-        System.out.println("\nPushing c using push method");
-        sll.push("c");
-        System.out.println("Head: " + sll.head.value);
-        System.out.println("Tail: " + sll.tail.value);
+        sll.push("b");
+        System.out.print("Push b: Expected: b d f Actual: ");
+        sll.display();
+        System.out.print(" Head Expected: b Actual: " + sll.head.value);
+        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
+        System.out.println(" Size Expected: 3 Actual: " + sll.size());
+        
+        // Pop an element from the list.
+        sll.pop();
+        System.out.print("Pop: Expected: d f Actual: ");
+        sll.display();
+        System.out.print(" Head Expected: d Actual: " + sll.head.value);
+        System.out.print(" Tail Expected: f Actual: " + sll.tail.value);
+        System.out.println(" Size Expected: 2 Actual: " + sll.size());
     }
     
 }
