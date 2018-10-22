@@ -156,6 +156,28 @@ public class SingleLinkedList
         }
     }
     
+    public String remove()  // Removes the tail
+    {
+        // Create a temp node for cycling to the end.
+        Node temp = head;
+        // Create the return node;
+        Node ret = head;
+        
+        // Cycle to the node prior to last and remove last.
+        while (temp.next != tail)
+        {
+            temp = temp.next;
+        }
+        
+        // Reset tail.
+        ret = temp;
+        temp.next = null;
+        tail = temp;
+        
+        return ret.value;
+    }
+            
+    
     /**
      * The addAfterValue method will add a provided value after 
      * a specified value in the list.
@@ -304,6 +326,18 @@ public class SingleLinkedList
         System.out.println(" Head Expected: d\tActual: " + sll.head.value);
         System.out.println(" Tail Expected: j\tActual: " + sll.tail.value);
         System.out.println(" Size Expected: 4\tActual: " + sll.size());
+        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+        System.out.println("Empty Expected: false\tActual: " + sll.empty());
+        System.out.println();
+        
+        // Remove an element from the tail.
+        sll.remove();
+        System.out.println("Remove:");
+        System.out.print(" List Expected: d f h\tActual: ");
+        sll.display(); System.out.println();
+        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+        System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
+        System.out.println(" Size Expected: 3\tActual: " + sll.size());
         System.out.println(" Peek Expected: d\tActual: " + sll.peek());
         System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
