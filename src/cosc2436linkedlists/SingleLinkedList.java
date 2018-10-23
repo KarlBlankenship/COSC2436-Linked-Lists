@@ -156,6 +156,11 @@ public class SingleLinkedList
         }
     }
     
+    /**
+     * The remove method will remove the tail item from the list
+     * and will return the value.
+     * @return The value that was removed from the list.
+     */
     public String remove()  // Removes the tail
     {
         // Create a temp node for cycling to the end.
@@ -163,18 +168,29 @@ public class SingleLinkedList
         // Create the return node;
         Node ret = head;
         
-        // Cycle to the node prior to last and remove last.
-        while (temp.next != tail)
+        // Check for empty list;
+        if (size() == 0)
+            return "List is empty";
+              
+        if (size() == 1)
         {
-            temp = temp.next;
+            head = null;
+            tail = null;
+            return ret.value;
         }
-        
-        // Reset tail.
-        ret = temp;
-        temp.next = null;
-        tail = temp;
-        
-        return ret.value;
+        else
+        {
+            // Cycle to the node prior to last and remove last.
+            while (temp != tail)
+            {
+                ret = temp;
+                temp = temp.next;
+            }
+            ret.next = null;
+            tail = ret;
+
+            return ret.value;
+        }
     }
             
     
@@ -330,18 +346,20 @@ public class SingleLinkedList
         System.out.println("Empty Expected: false\tActual: " + sll.empty());
         System.out.println();
         
-        // Remove an element from the tail.
-        sll.remove();
-        System.out.println("Remove:");
-        System.out.print(" List Expected: d f h\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 3\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
+        for (int x = 0; x < 4; x++)
+        {
+            // Remove an element from the tail.
+            sll.remove();
+            System.out.println("Remove:");
+            System.out.print(" List Expected: d f h\tActual: ");
+            sll.display(); System.out.println();
+            System.out.println(" Head Expected: d\tActual: " + sll.head.value);
+            System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
+            System.out.println(" Size Expected: 3\tActual: " + sll.size());
+            System.out.println(" Peek Expected: d\tActual: " + sll.peek());
+            System.out.println("Empty Expected: false\tActual: " + sll.empty());
+            System.out.println();
+        }
     }
     
 }
