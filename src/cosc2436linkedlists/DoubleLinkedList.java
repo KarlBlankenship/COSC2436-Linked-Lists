@@ -11,6 +11,18 @@ package cosc2436linkedlists;
  */
 public class DoubleLinkedList {
 
+    private class Node
+    {
+        String value;
+        Node next;
+        Node prev;
+        
+        private Node(String val)
+        {
+            this.value = val;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
