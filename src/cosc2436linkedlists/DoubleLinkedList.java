@@ -85,7 +85,12 @@ public class DoubleLinkedList {
         }
     }
     
-    
+    /**
+     * The insert method will insert a given value after 
+     * a provided value in the list.
+     * @param val The value of the new node to be created.
+     * @param after The value in the list to add the new node after.
+     */
     private void insert(String val, String after)
     {
         // Create the new Node.
@@ -114,7 +119,6 @@ public class DoubleLinkedList {
             }
             pointer = pointer.next;
         }
-        
     }
     
     /**
