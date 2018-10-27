@@ -61,11 +61,39 @@ public class DoubleLinkedList {
     }
     
     
+    private void display()
+    {
+        // Create a temporary pointer node and set it equal to head.
+        Node point = head;
+
+        // Cycle through the list and display the contents.
+        while (point != null)
+        {
+            System.out.print(point.value + " ");
+            point = point.next;
+        }
+        
+    }
+    
+    
     /**
+     * The main method will create a double linked list object and 
+     * test the various methods.
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) 
+    {
+        // Create the double linked list object.
+        DoubleLinkedList dll = new DoubleLinkedList();
+        
+        // Add an element a to the list.
+        dll.add("a");
+        dll.add("b");
+        dll.add("c");
+        
+        dll.display();
+        System.out.println();
+        
     }
     
 }
