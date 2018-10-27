@@ -144,6 +144,18 @@ public class DoubleLinkedList {
         }
     }
     
+    
+    private String pop()
+    {
+        // Create a temp node for returning the value popped from the list.
+        Node temp = head;
+        // Pop the head of the list. Stack - FILO
+        head = head.next;
+        head.prev = null;
+        // Return the value removed from the list.
+        return temp.value;
+    }
+    
     /**
      * The display method will print the element values of the 
      * double link list to the terminal.
@@ -215,6 +227,10 @@ public class DoubleLinkedList {
         dll.reverseDisplay();
         System.out.println();
         
+        dll.pop();
+        System.out.println();
+        dll.reverseDisplay();
+        System.out.println();
         
   
     }
