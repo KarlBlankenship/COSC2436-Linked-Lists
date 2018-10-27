@@ -60,6 +60,63 @@ public class DoubleLinkedList {
         }
     }
     
+    
+    /**
+     * The remove method will remove the head of the list (queue)
+     * and will return the value that was removed.
+     * @return The value of the node that was removed.
+     */
+    private String remove()
+    {
+        // Check that the list exists and return error if not.
+        if (head == null)
+        {
+            return "Error";
+        }
+        else    // Remove the head of the list (queue)
+        {
+            // Create a temp node for returning the removed value.
+            Node temp = head;
+            // Reassign the head.
+            head = head.next;
+            head.prev = null;
+            // Return the value of the original head.
+            return temp.value;
+        }
+    }
+    
+    
+    private void insert(String val, String after)
+    {
+        // Create the new Node.
+        Node n = new Node(val);
+        // Create a temporary pointer variable/
+        Node pointer = head;
+        // Cycle through the list to find the index location.
+        while (pointer != null)
+        {
+            if (pointer.value.equals(after))
+            {
+                if (pointer == tail)
+                {
+                    pointer.next = n;
+                    n.prev = pointer;
+                    tail = n;
+                }
+                else
+                {
+                    n.next = pointer.next;
+                    pointer.next.prev = n;
+                    n.prev = pointer;
+                    pointer.next = n;
+                }
+                break;
+            }
+            pointer = pointer.next;
+        }
+        
+    }
+    
     /**
      * The display method will print the element values of the 
      * double link list to the terminal.
@@ -109,11 +166,22 @@ public class DoubleLinkedList {
         dll.add("a");
         dll.add("b");
         dll.add("c");
+        dll.add("c");
         
         dll.display();
         System.out.println();
         dll.reverseDisplay();
         System.out.println();
+        
+        //dll.remove();
+        dll.insert("x", "a");
+        dll.insert("y", "c");
+        dll.display();
+        System.out.println();
+        dll.reverseDisplay();
+        System.out.println();
+        
+        
   
     }
     
