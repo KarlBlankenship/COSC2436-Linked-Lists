@@ -122,6 +122,29 @@ public class DoubleLinkedList {
     }
     
     /**
+     * The push method will push a new node into the head
+     * of the list. This is a stack.
+     * @param val The value that will be in the new node.
+     */
+    private void push(String val)
+    {
+        // Create the new node.
+        Node n = new Node(val);
+        // Check if the list is empty.
+        if (head == null)   // Create new list.
+        {
+            head = n;
+            tail = n;
+        }
+        else    // Push to the head of the list (stack)
+        {
+            n.next = head;
+            head.prev = n;
+            head = n;
+        }
+    }
+    
+    /**
      * The display method will print the element values of the 
      * double link list to the terminal.
      */
@@ -180,6 +203,13 @@ public class DoubleLinkedList {
         //dll.remove();
         dll.insert("x", "a");
         dll.insert("y", "c");
+        dll.display();
+        System.out.println();
+        dll.reverseDisplay();
+        System.out.println();
+        
+        dll.push("f");
+        dll.push("g");
         dll.display();
         System.out.println();
         dll.reverseDisplay();
