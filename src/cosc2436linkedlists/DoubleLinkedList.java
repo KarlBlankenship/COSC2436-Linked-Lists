@@ -60,7 +60,10 @@ public class DoubleLinkedList {
         }
     }
     
-    
+    /**
+     * The display method will print the element values of the 
+     * double link list to the terminal.
+     */
     private void display()
     {
         // Create a temporary pointer node and set it equal to head.
@@ -72,7 +75,23 @@ public class DoubleLinkedList {
             System.out.print(point.value + " ");
             point = point.next;
         }
-        
+    }
+    
+    /**
+     * The reverseDisplay method will print the element values of the 
+     * double link list to the terminal in reverse order.
+     */
+    private void reverseDisplay()
+    {
+        // Create a temporary pointer node and set it equal to tail.
+        Node point = tail;
+
+        // Cycle through the list and display the contents.
+        while (point != null)
+        {
+            System.out.print(point.value + " ");
+            point = point.prev;
+        }
     }
     
     
@@ -93,7 +112,9 @@ public class DoubleLinkedList {
         
         dll.display();
         System.out.println();
-        
+        dll.reverseDisplay();
+        System.out.println();
+  
     }
     
 }
