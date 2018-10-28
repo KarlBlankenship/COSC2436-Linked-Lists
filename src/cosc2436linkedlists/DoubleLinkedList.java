@@ -190,6 +190,22 @@ public class DoubleLinkedList {
         }
     }
     
+    public void dispRec()
+    {
+        dispRec(head);
+        System.out.println();
+    }
+    
+    private void dispRec(Node n)
+    {
+        if (n != null)
+        {
+            System.out.print(n.value + " ");  // Reverse Print
+            dispRec(n.next);
+            //System.out.print(n.value + " ");  // Forward print.
+        }
+    }
+    
     
     /**
      * The main method will create a double linked list object and 
@@ -232,7 +248,8 @@ public class DoubleLinkedList {
         dll.reverseDisplay();
         System.out.println();
         
-  
+        System.out.println("Recursive print");
+        dll.dispRec();
     }
     
 }

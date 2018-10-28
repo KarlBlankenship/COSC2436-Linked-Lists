@@ -261,6 +261,50 @@ public class SingleLinkedList
         }   
     }
     
+//    private void recursiveDisplay()
+//    {
+//        recursiveDisplay(head);
+//    }
+//    
+//    public void recursiveDisplay(Node hd)
+//    {
+//        if (hd == null)
+//            System.out.println("");
+//        else
+//            System.out.println(hd.value + recursiveDisplay(hd.next));
+//    }
+    
+    public void displayRecursively()
+    {
+        displayRecursively(head);
+    }
+    
+    private void displayRecursively(Node current)
+    {
+        if (current !=  null)
+        {
+            System.out.print(current.value + " ");
+            displayRecursively(current.next);
+        }       
+        
+    }
+    
+    public void displayReverseRecursively()
+    {
+        displayReverseRecursively(head);
+    }
+    
+    private void displayReverseRecursively(Node current)
+    {
+        if (current !=  null)
+        {
+            
+            displayReverseRecursively(current.next);
+            System.out.print(current.value + " ");
+        }       
+        
+    }
+    
     /**
      * This is the main method which will create the SingleLinkedList object
      * and test the methods.
@@ -271,95 +315,12 @@ public class SingleLinkedList
         // Create a new SingleLinkedList object.
         SingleLinkedList sll = new SingleLinkedList();
         
-        // Check the list empty method prior to adding anything to the list.
-        System.out.println("Empty Expected: true\tActual: " + sll.empty());
-        System.out.println();
-        // Add an element to the new list and verify it has been added.
         sll.add("d");
-        System.out.println("Add d:");
-        System.out.print(" List Expected: d\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: d\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 1\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        // Add another element to the new list and verify it has been added.
-        sll.add("f");
-        System.out.println("Add f:");
-        System.out.print(" List Expected: d f\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 2\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        // Push an element to the new list and verify it has become the head.
-        sll.push("b");
-        System.out.println("Push b:");
-        System.out.print(" List Expected: b d f\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: b\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 3\tActual: " + sll.size());
-        System.out.println(" Peek Expected: b\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        // Pop an element from the list.
-        sll.pop();
-        System.out.println("Pop:");
-        System.out.print(" List Expected: d f\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: f\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 2\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        // Add an element after a value.
-        sll.addAfterValue("h", "f");
-        System.out.println("AddValueAfter:");
-        System.out.print(" List Expected: d f h\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 3\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        // Add an element after an index.
-        sll.addAfterIndex("j", 2);
-        System.out.println("AddValueAfter:");
-        System.out.print(" List Expected: d f h j\tActual: ");
-        sll.display(); System.out.println();
-        System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-        System.out.println(" Tail Expected: j\tActual: " + sll.tail.value);
-        System.out.println(" Size Expected: 4\tActual: " + sll.size());
-        System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-        System.out.println("Empty Expected: false\tActual: " + sll.empty());
-        System.out.println();
-        
-        for (int x = 0; x < 4; x++)
-        {
-            // Remove an element from the tail.
-            sll.remove();
-            System.out.println("Remove:");
-            System.out.print(" List Expected: d f h\tActual: ");
-            sll.display(); System.out.println();
-            System.out.println(" Head Expected: d\tActual: " + sll.head.value);
-            System.out.println(" Tail Expected: h\tActual: " + sll.tail.value);
-            System.out.println(" Size Expected: 3\tActual: " + sll.size());
-            System.out.println(" Peek Expected: d\tActual: " + sll.peek());
-            System.out.println("Empty Expected: false\tActual: " + sll.empty());
-            System.out.println();
-        }
+        sll.add("c");
+        sll.add("b");
+        sll.add("a");
+        sll.displayRecursively();
+        sll.displayReverseRecursively();
     }
     
 }
