@@ -9,7 +9,20 @@ package cosc2436binarytree;
  *
  * @author Karl
  */
-public class BinaryTree {
+public class BinaryTree 
+{
+    
+    private class Node
+    {
+        int value;      // Integer value to be held in the node.
+        Node left;      // left pointer.
+        Node right;     // Right pointer.
+        
+        private Node(int val)
+        {
+            this.value = val;
+        }
+    }
 
     /**
      * @param args the command line arguments
