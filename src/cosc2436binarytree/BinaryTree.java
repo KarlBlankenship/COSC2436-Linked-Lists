@@ -23,6 +23,24 @@ public class BinaryTree
             this.value = val;
         }
     }
+    
+    Node root = null;
+    
+    public Node add(Node current, int val)
+    {
+        if (current == null)
+            return new Node(val);
+        else if (val < current.value)
+            current.left = add(current.left, val);
+        else if (val > current.value)
+            current.right = add(current.right, val);
+        return current;    
+    }
+    
+    public void addValue()
+    {
+        root = add(root, 10);
+    }
 
     /**
      * @param args the command line arguments
