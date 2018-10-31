@@ -200,9 +200,9 @@ public class DoubleLinkedList {
     {
         if (n != null)
         {
-            System.out.print(n.value + " ");  // Reverse Print
+            //System.out.print(n.value + " ");  // forward Print
             dispRec(n.next);
-            //System.out.print(n.value + " ");  // Forward print.
+            System.out.print(n.value + " ");  // Reverse print.
         }
     }
     
@@ -245,7 +245,7 @@ public class DoubleLinkedList {
         
         dll.pop();
         System.out.println();
-        dll.reverseDisplay();
+        dll.display();
         System.out.println();
         
         System.out.println("Recursive print");
