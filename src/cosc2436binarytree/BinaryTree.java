@@ -27,6 +27,19 @@ public class BinaryTree
             this.value = val;
         }
     }
+    
+    public void add(Node current, int val)
+    {
+        if(current == null)
+            current.value = val;
+        else
+        {
+            if(val < current.value)
+                add(current.left, val);
+            else
+                add(current.right, val);
+        }
+    }
 
     /**
      * @param args the command line arguments
