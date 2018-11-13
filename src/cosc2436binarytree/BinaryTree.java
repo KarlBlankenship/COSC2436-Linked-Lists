@@ -12,7 +12,7 @@ package cosc2436binarytree;
 public class BinaryTree 
 {
     
-    class Node
+    private class Node
     {
         int value;  // Value to be stored in the node.
         Node left;  // Reference to the left node.
@@ -22,30 +22,52 @@ public class BinaryTree
          * Constructor.
          * @param val 
          */
-        Node(int val)
+        private Node(int val)
         {
             this.value = val;
         }
     }
     
-    public void add(Node current, int val)
+    // Create the root node.
+    Node root = null;   // Reference variable for the root node.
+    
+    /**
+     * Recursivel adds a new node or creates the root node.
+     * @param current
+     * @param val 
+     */
+    public Node add(Node current, int val)
     {
         if(current == null)
-            current.value = val;
+            return new Node(val);
         else
         {
             if(val < current.value)
-                add(current.left, val);
+                current.left = add(current.left, val);
             else
-                add(current.right, val);
+                current.right = add(current.right, val);
+            return current;
         }
     }
 
     /**
+     * Method to be called from main method to add values.
+     */
+    public void addValues()
+    {
+        root = add(root, 20);
+        
+    }
+    
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        BinaryTree bt = new BinaryTree();
+        
+        bt.addValues();
+        
     }
     
 }
