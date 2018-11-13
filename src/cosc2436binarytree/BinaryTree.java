@@ -12,7 +12,21 @@ package cosc2436binarytree;
 public class BinaryTree 
 {
     
-    
+    class Node
+    {
+        int value;  // Value to be stored in the node.
+        Node left;  // Reference to the left node.
+        Node right; // Reference to the right node.
+        
+        /**
+         * Constructor.
+         * @param val 
+         */
+        Node(int val)
+        {
+            this.value = val;
+        }
+    }
 
     /**
      * @param args the command line arguments
