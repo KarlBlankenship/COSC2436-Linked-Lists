@@ -56,7 +56,24 @@ public class BinaryTree
     public void addValues()
     {
         root = add(root, 20);
+        add(root, 17);
+        add(root, 21);
         
+    }
+    
+    public void display(Node root)
+    {
+        if(root != null) 
+        {
+            display(root.left);
+            System.out.print(root.value + " ");
+            display(root.right);
+        }
+    }
+    
+    public void displayValues()
+    {
+        display(root);
     }
     
     /**
@@ -67,6 +84,7 @@ public class BinaryTree
         BinaryTree bt = new BinaryTree();
         
         bt.addValues();
+        bt.displayValues();
         
     }
     
